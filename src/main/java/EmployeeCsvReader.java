@@ -1,5 +1,7 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -7,15 +9,18 @@ import java.util.ArrayList;
 public class EmployeeCsvReader {
 
     // returns an array list of strings
-    public ArrayList<String> readFileLines(String filename){
+    public ArrayList<String> readFileLines(String filename) throws FileNotFoundException {
         String line;
         ArrayList<String> allEmployeeLines = new ArrayList<>();
+        if (filename.isEmpty()){
+            throw new FileNotFoundException("File is not found");
+        }
         try(BufferedReader br = Files.newBufferedReader(Paths.get(filename))) {
             while ((line = br.readLine()) != null) {
                 allEmployeeLines.add(line);
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
 
         return allEmployeeLines;
@@ -29,13 +34,13 @@ public class EmployeeCsvReader {
 
     }
     // reads
-    public ArrayList<Employee> readEmployee(String filename){
+    public ArrayList<Employee> readEmployee(String filename) throws FileNotFoundException {
+        ArrayList<Employee> listOfEmployees = new ArrayList<>();
         ArrayList<String> list = readFileLines(filename);
         for (var eachLine : list){
-            createEmployee(eachLine);
+            listOfEmployees.add(createEmployee(eachLine));
         }
-
-        return null;
+        return listOfEmployees;
     }
 
 

@@ -14,4 +14,15 @@ public class Employee {
         this.gender = gender;
         this.startDate = startDate;
     }
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id='" + id + '\'' +
+                ", dob='" + dob + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", gender='" + gender + '\'' +
+                ", startDate='" + startDate + '\'' +
+                '}';
+    }
 }
