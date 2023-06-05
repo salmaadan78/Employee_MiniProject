@@ -23,12 +23,18 @@ public class EmployeeCsvReader {
 
     // returns an employee object
     public Employee createEmployee(String line){
-        return null;
+        String[] arrayOfLines = line.split(",");
+        Employee emp = new Employee(arrayOfLines[0],arrayOfLines[1],arrayOfLines[2],arrayOfLines[3],arrayOfLines[4],arrayOfLines[5]);
+        return emp;
+
     }
     // reads
     public ArrayList<Employee> readEmployee(String filename){
-        readFileLines(null);
-        createEmployee(null);
+        ArrayList<String> list = readFileLines(filename);
+        for (var eachLine : list){
+            createEmployee(eachLine);
+        }
+
         return null;
     }
 

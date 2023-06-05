@@ -4,7 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
         EmployeeCsvReader reader = new EmployeeCsvReader();
-        ArrayList result = reader.readFileLines("src/main/resources/Employees_short.csv");
+
+//        var result = reader.readFileLines("src/main/resources/Employees_short.csv");
         System.out.println(result);
 
     }
