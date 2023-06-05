@@ -1,32 +1,28 @@
 public class Employee {
-
     private String id;
+    private String dob;
     private String firstName;
     private String lastName;
-    private String dob;
     private String gender;
     private String startDate;
 
+    public Employee(String id, String dob, String firstName, String lastName, String gender, String startDate) {
+        this.id = id;
+        this.dob = dob;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+        this.startDate = startDate;
+    }
     @Override
     public String toString() {
         return "Employee{" +
                 "id='" + id + '\'' +
+                ", dob='" + dob + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", dob='" + dob + '\'' +
                 ", gender='" + gender + '\'' +
                 ", startDate='" + startDate + '\'' +
                 '}';
     }
-
-    public Employee(String id, String firstName, String lastName, String dob, String gender, String startDate) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.dob = dob;
-        this.gender = gender;
-        this.startDate = startDate;
-    }
-
-
 }
