@@ -22,13 +22,13 @@ public class EmployeeCsvReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return allEmployeeLines;
     }
 
     // returns an employee object
     public Employee createEmployee(String line){
         String[] arrayOfLines = line.split(",");
+        validatorEmployee(arrayOfLines);
         Employee emp = new Employee(arrayOfLines[0],arrayOfLines[1],arrayOfLines[2],arrayOfLines[3],arrayOfLines[4],arrayOfLines[5]);
         return emp;
 
@@ -41,6 +41,22 @@ public class EmployeeCsvReader {
             listOfEmployees.add(createEmployee(eachLine));
         }
         return listOfEmployees;
+    }
+
+    public void validatorEmployee(String[] arrayOfLines){
+        Validator validator = new Validator();
+        //id
+        validator.idValidator(arrayOfLines[0]);
+        //dob
+        validator.dateValidator(arrayOfLines[1]);
+        //name
+        validator.nameValidator(arrayOfLines[2]);
+        validator.nameValidator(arrayOfLines[3]);
+        //gender
+        validator.genderValidator(arrayOfLines[4]);
+        //startdate
+        validator.dateValidator(arrayOfLines[5]);
+
     }
 
 
