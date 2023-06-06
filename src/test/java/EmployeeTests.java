@@ -30,7 +30,6 @@ public class EmployeeTests {
         EmployeeCsvReader reader = new EmployeeCsvReader();
         Employee emp = new Employee("123","2000-07-19","Salma", "Adan", "F", "2023-04-17");
         Assertions.assertEquals(emp.toString(), reader.createEmployee(line).toString());
-
     }
 
 
