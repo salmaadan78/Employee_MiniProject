@@ -25,12 +25,23 @@ public class EmployeeCsvReader {
         return allEmployeeLines;
     }
 
+
     // returns an employee object
     public Employee createEmployee(String line){
         String[] arrayOfLines = line.split(",");
         Employee emp = new Employee(arrayOfLines[0],arrayOfLines[1],arrayOfLines[2],arrayOfLines[3],arrayOfLines[4],arrayOfLines[5]);
         return emp;
+    }
 
+    public void validateEmployee(String line){
+        String[] arrayOfLines = line.split(",");
+        Validator validator = new Validator();
+        validator.idValidator(arrayOfLines[0]);
+        validator.dateValidator(arrayOfLines[1]);
+        validator.nameValidator(arrayOfLines[2]);
+        validator.nameValidator(arrayOfLines[3]);
+        validator.genderValidator(arrayOfLines[4]);
+        validator.dateValidator(arrayOfLines[5]);
     }
     // reads
     public ArrayList<Employee> readEmployee(String filename) throws FileNotFoundException {

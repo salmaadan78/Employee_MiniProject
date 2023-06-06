@@ -3,6 +3,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
+import java.time.LocalDate;
 
 public class EmployeeTests {
 
@@ -31,6 +32,32 @@ public class EmployeeTests {
         Employee emp = new Employee("123","2000-07-19","Salma", "Adan", "F", "2023-04-17");
         Assertions.assertEquals(emp.toString(), reader.createEmployee(line).toString());
     }
+
+    @Test
+    @DisplayName("Entering a name validates with given regex constraints")
+    public void testNameValidator(){
+        String name = "Bob O'Marley The 2nd";
+        Validator validator = new Validator();
+        Assertions.assertTrue(validator.nameValidator(name));
+    }
+
+    @Test
+    @DisplayName("Given a string date returns a LocalDate object")
+    public void testStringToLocalDate(){
+        String date = "06-06-2023";
+        DataConversion dataConversion = new DataConversion();
+        Assertions.assertEquals(LocalDate.of(2023, 06, 6), dataConversion.stringToLocalDate(date));
+    }
+
+    @Test
+    @DisplayName("Given a string gender returns a char")
+    public void testStringToChar(){
+        String gender = "F";
+        Assertions.assertEquals('F',DataConversion.stringToChar(gender));
+    }
+
+
+
 
 
 
