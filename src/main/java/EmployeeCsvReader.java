@@ -36,32 +36,28 @@ private static Logger logger = LogManager.getLogger("src/main/resources/Employee
         return emp;
     }
 
-    public void validateEmployeeID(String [] arrayOfLines) {
-        Validator validator = new Validator();
-        var id = arrayOfLines[0];
-
-
-        if (validator.idValidator(id) == false) {
-
-            try {
-                throw new Exception("Could not process ID:" + id);
-            } catch (Exception e) {
-                logger.warn("Could not process ID:  " + id);
-                logger.catching(e);
-                throw new RuntimeException(e);
-            }
-        }
-    }
 
     public void validateEmployee(String [] arrayOfLines){
         Validator validator = new Validator();
-        validator.idValidator(arrayOfLines[0]);
-        validator.dateValidator(arrayOfLines[1]);
-        validator.nameValidator(arrayOfLines[2]);
-        validator.nameValidator(arrayOfLines[3]);
-        validator.genderValidator(arrayOfLines[4]);
-        validator.dateValidator(arrayOfLines[5]);
-    }
+        if(
+        validator.idValidator(arrayOfLines[0]) |
+        validator.dateValidator(arrayOfLines[1]) |
+        validator.nameValidator(arrayOfLines[2]) |
+        validator.nameValidator(arrayOfLines[3]) |
+        validator.genderValidator(arrayOfLines[4]) |
+        validator.dateValidator(arrayOfLines[5]) == false){
+
+                    try {
+                        throw new Exception("Could not process employee");
+                    } catch (Exception e) {
+                        logger.warn("Could not process employee");
+                        logger.catching(e);
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+
+
 
 
     public ArrayList<Employee> readEmployee(String filename) throws FileNotFoundException {
