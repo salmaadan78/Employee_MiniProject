@@ -23,18 +23,29 @@ private static Logger logger = LogManager.getLogger("src/main/resources/Employee
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return allEmployeeLines;
     }
 
 
     // returns an employee object
-    public Employee createEmployee(String line){
+    public Employee createEmployee(String line) {
         String[] arrayOfLines = line.split(",");
-        validateEmployee(arrayOfLines);
-        Employee emp = new Employee(arrayOfLines[0],arrayOfLines[1],arrayOfLines[2],arrayOfLines[3],arrayOfLines[4],arrayOfLines[5]);
-        return emp;
-    }
+
+//        if ((validateEmployee(arrayOfLines)) {
+            Employee emp = new Employee(arrayOfLines[0], arrayOfLines[1], arrayOfLines[2], arrayOfLines[3], arrayOfLines[4], arrayOfLines[5]);
+            return emp;
+        }
+
+
+//            try {
+//                throw new Exception("Could not process employee");
+//            } catch (Exception e) {
+//                logger.warn("Could not process employee");
+//                logger.catching(e);
+//                throw new RuntimeException(e);
+//            }
+
+
 
 
 
@@ -47,7 +58,6 @@ private static Logger logger = LogManager.getLogger("src/main/resources/Employee
         validator.nameValidator(arrayOfLines[3]) |
         validator.genderValidator(arrayOfLines[4]) |
         validator.dateValidator(arrayOfLines[5]) == false){
-
                     try {
                         throw new Exception("Could not process employee");
                     } catch (Exception e) {
