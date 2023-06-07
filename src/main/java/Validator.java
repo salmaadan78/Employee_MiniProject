@@ -1,3 +1,4 @@
+
 import java.time.LocalDate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -8,6 +9,7 @@ public class Validator {
         Pattern pattern = Pattern.compile("[0-9]{1,8}");
         Matcher match = pattern.matcher(id);
         return match.find();
+
     }
 
     public boolean dateValidator(String date){
@@ -27,7 +29,5 @@ public class Validator {
         Matcher match = pattern.matcher(gender);
         return match.find();
     }
-
-
 
 }
