@@ -56,28 +56,8 @@ public class EmployeeTests {
         Assertions.assertEquals('F',DataConversion.stringToChar(gender));
     }
 
-    @Test
-    @DisplayName("Entering a name and validate with given regex constrains")
-    public void testNameValidator(){
-        String name = "Bob O'marley the 2nd";
-        Validator validator = new Validator();
-        Assertions.assertTrue(validator.nameValidator(name));
-    }
 
-    @Test
-    @DisplayName("Given string date returns a localdate object")
-    public void testStringToLocalDate(){
-        String date ="06-05-2015";
-        DataConversion dataConversion = new DataConversion();
-        Assertions.assertEquals(LocalDate.of(2015,05,06),dataConversion.stringToLocalDate(date));
-    }
 
-    @Test
-    @DisplayName("Given string gender return a char")
-    public void testStringToChar(){
-        String gender ="F";
-        Assertions.assertEquals('F',DataConversion.stringToChar(gender));
-    }
 
 
 
