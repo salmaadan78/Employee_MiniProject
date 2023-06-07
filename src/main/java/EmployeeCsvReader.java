@@ -40,16 +40,8 @@ private static Logger logger = LogManager.getLogger("src/main/resources/Employee
         Validator validator = new Validator();
         var id = arrayOfLines[0];
 
-
         if (validator.idValidator(id) == false) {
-
-            try {
-                throw new Exception("Could not process ID:" + id);
-            } catch (Exception e) {
                 logger.warn("Could not process ID:  " + id);
-                logger.catching(e);
-                throw new RuntimeException(e);
-            }
         }
     }
 
