@@ -1,12 +1,14 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 public class EmployeeCsvReader {
-
+private static Logger logger = LogManager.getLogger("src/main/resources/Employees_short.csv");
     // returns an array list of strings
     public ArrayList<String> readFileLines(String filename) throws FileNotFoundException {
         String line;
@@ -34,6 +36,19 @@ public class EmployeeCsvReader {
         return emp;
     }
 
+    public void validateEmployeeID(String [] arrayOfLines){
+        Validator validator = new Validator();
+        var id = arrayOfLines[0];
+       try{
+           validator.idValidator(id);
+
+        } catch(IOException e){
+           logger.warn("Could not process ID:  " + id);
+           logger.catching(e);
+       }
+
+        }
+
     public void validateEmployee(String [] arrayOfLines){
         Validator validator = new Validator();
         validator.idValidator(arrayOfLines[0]);
@@ -43,7 +58,8 @@ public class EmployeeCsvReader {
         validator.genderValidator(arrayOfLines[4]);
         validator.dateValidator(arrayOfLines[5]);
     }
-    // reads
+
+
     public ArrayList<Employee> readEmployee(String filename) throws FileNotFoundException {
         ArrayList<Employee> listOfEmployees = new ArrayList<>();
         ArrayList<String> list = readFileLines(filename);
