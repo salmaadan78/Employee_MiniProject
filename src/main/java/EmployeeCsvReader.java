@@ -8,7 +8,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 public class EmployeeCsvReader {
-private static Logger logger = LogManager.getLogger("src/main/resources/Employees_short.csv");
+private static Logger logger = LogManager.getLogger("Employee mini Project");
     // returns an array list of strings
     public ArrayList<String> readFileLines(String filename) throws FileNotFoundException {
         String line;
