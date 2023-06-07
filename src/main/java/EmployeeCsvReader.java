@@ -37,6 +37,7 @@ private static Logger logger = LogManager.getLogger("src/main/resources/Employee
     }
 
 
+
     public void validateEmployee(String [] arrayOfLines){
         Validator validator = new Validator();
         if(
@@ -56,9 +57,6 @@ private static Logger logger = LogManager.getLogger("src/main/resources/Employee
                     }
                 }
             }
-
-
-
 
     public ArrayList<Employee> readEmployee(String filename) throws FileNotFoundException {
         ArrayList<Employee> listOfEmployees = new ArrayList<>();
