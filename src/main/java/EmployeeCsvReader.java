@@ -36,18 +36,22 @@ private static Logger logger = LogManager.getLogger("src/main/resources/Employee
         return emp;
     }
 
-    public void validateEmployeeID(String [] arrayOfLines){
+    public void validateEmployeeID(String [] arrayOfLines) {
         Validator validator = new Validator();
         var id = arrayOfLines[0];
-       try{
-           validator.idValidator(id);
 
-        } catch(IOException e){
-           logger.warn("Could not process ID:  " + id);
-           logger.catching(e);
-       }
 
+        if (validator.idValidator(id) == false) {
+
+            try {
+                throw new Exception("Could not process ID:" + id);
+            } catch (Exception e) {
+                logger.warn("Could not process ID:  " + id);
+                logger.catching(e);
+                throw new RuntimeException(e);
+            }
         }
+    }
 
     public void validateEmployee(String [] arrayOfLines){
         Validator validator = new Validator();
