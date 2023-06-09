@@ -10,7 +10,7 @@ public class EmployeeTests {
     @Test
     @DisplayName("Given the method reads file lines")
     public void testReadFileLines() throws FileNotFoundException {
-        String filename = "src/main/resources/Employees_short.csv";
+        String filename = "src/main/resources/employees01.csv";
         EmployeeCsvReader reader = new EmployeeCsvReader();
         Assertions.assertEquals(10,reader.readFileLines(filename).size());
     }
