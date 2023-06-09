@@ -41,11 +41,11 @@ private static Logger logger = LogManager.getLogger("Employee mini Project");
     public void validateEmployee(String [] arrayOfLines){
         Validator validator = new Validator();
         if(
-        validator.idValidator(arrayOfLines[0]) |
-        validator.dateValidator(arrayOfLines[1]) |
-        validator.nameValidator(arrayOfLines[2]) |
-        validator.nameValidator(arrayOfLines[3]) |
-        validator.genderValidator(arrayOfLines[4]) |
+        validator.idValidator(arrayOfLines[0]) &&
+        validator.dateValidator(arrayOfLines[1]) &&
+        validator.nameValidator(arrayOfLines[2]) &&
+        validator.nameValidator(arrayOfLines[3]) &&
+        validator.genderValidator(arrayOfLines[4]) &&
         validator.dateValidator(arrayOfLines[5]) == false){
 
                     try {
