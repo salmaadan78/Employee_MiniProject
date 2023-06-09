@@ -23,39 +23,43 @@ private static Logger logger = LogManager.getLogger("Employee mini Project");
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return allEmployeeLines;
     }
 
 
     // returns an employee object
     public Employee createEmployee(String line){
+        Employee emp= null;
         String[] arrayOfLines = line.split(",");
-        validateEmployee(arrayOfLines);
-        Employee emp = new Employee(arrayOfLines[0],arrayOfLines[1],arrayOfLines[2],arrayOfLines[3],arrayOfLines[4],arrayOfLines[5]);
+        if(validateEmployee(arrayOfLines)) {
+             emp = new Employee(arrayOfLines[0], arrayOfLines[1], arrayOfLines[2], arrayOfLines[3], arrayOfLines[4], arrayOfLines[5]);
+        }
         return emp;
     }
 
 
 
-    public void validateEmployee(String [] arrayOfLines){
+    public boolean validateEmployee(String [] arrayOfLines){
         Validator validator = new Validator();
         if(
-        validator.idValidator(arrayOfLines[0]) |
-        validator.dateValidator(arrayOfLines[1]) |
-        validator.nameValidator(arrayOfLines[2]) |
-        validator.nameValidator(arrayOfLines[3]) |
-        validator.genderValidator(arrayOfLines[4]) |
-        validator.dateValidator(arrayOfLines[5]) == false){
-
-                    try {
-                        throw new Exception("Could not process employee");
-                    } catch (Exception e) {
-                        logger.warn("Could not process employee");
-                        logger.catching(e);
-                        throw new RuntimeException(e);
-                    }
-                }
+        validator.idValidator(arrayOfLines[0]) &&
+        validator.dateValidator(arrayOfLines[1]) &&
+        validator.nameValidator(arrayOfLines[2]) &&
+        validator.nameValidator(arrayOfLines[3]) &&
+        validator.genderValidator(arrayOfLines[4]) &&
+        validator.dateValidator(arrayOfLines[5]))
+        {
+        return true;
+        }
+        else{
+            try {
+                throw new Exception("Could not process employee");
+            } catch (Exception e) {
+                logger.warn("Could not process employee");
+                logger.catching(e);
+                throw new RuntimeException(e);
+            }
+        }
             }
 
     public ArrayList<Employee> readEmployee(String filename) throws FileNotFoundException {
