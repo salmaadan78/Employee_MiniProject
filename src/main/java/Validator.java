@@ -25,7 +25,7 @@ public class Validator {
     }
 
     public boolean genderValidator(String gender){
-        Pattern pattern = Pattern.compile("[A-Z]");
+        Pattern pattern = Pattern.compile("[MFX]");
         Matcher match = pattern.matcher(gender);
         return match.find();
     }
