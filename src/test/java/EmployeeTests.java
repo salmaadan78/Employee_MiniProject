@@ -1,3 +1,4 @@
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -55,6 +56,15 @@ public class EmployeeTests {
         String gender = "F";
         Assertions.assertEquals('F',DataConversion.stringToChar(gender));
     }
+
+//    @Test
+//    @DisplayName("Checking if employee object is converted to a JSON file")
+//    public void testEmployeeObjectToJSON() throws JsonProcessingException {
+//        Employee emp = new Employee("123","2000-07-19","Salma", "Adan", "F", "2023-04-17");
+//        EmployeeConversion em = new EmployeeConversion();
+//        em.employeeObjectToJSON(emp);
+//        Assertions.assertEquals("",em.employeeObjectToJSON(emp));
+//    }
 
 
 

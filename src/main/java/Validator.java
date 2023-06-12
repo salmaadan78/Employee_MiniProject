@@ -13,7 +13,7 @@ public class Validator {
     }
 
     public boolean dateValidator(String date){
-        Pattern pattern = Pattern.compile("[0-9]{1,2}-[0-9]{1,2}-[0-9]{4}");
+        Pattern pattern = Pattern.compile("[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}");
         Matcher match = pattern.matcher(date);
         return match.find();
     }
