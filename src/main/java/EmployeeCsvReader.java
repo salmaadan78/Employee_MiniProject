@@ -41,26 +41,18 @@ private static Logger logger = LogManager.getLogger("Employee mini Project");
 
     public boolean validateEmployee(String [] arrayOfLines){
         Validator validator = new Validator();
-        if(
-        validator.idValidator(arrayOfLines[0]) &&
-        validator.dateValidator(arrayOfLines[1]) &&
-        validator.nameValidator(arrayOfLines[2]) &&
-        validator.nameValidator(arrayOfLines[3]) &&
-        validator.genderValidator(arrayOfLines[4]) &&
-        validator.dateValidator(arrayOfLines[5]))
+        boolean validEmp = false;
+        if(validator.idValidator(arrayOfLines[0]) && validator.dateValidator(arrayOfLines[1]) &&
+                validator.nameValidator(arrayOfLines[2]) && validator.nameValidator(arrayOfLines[3])&&
+                validator.genderValidator(arrayOfLines[4]) && validator.dateValidator(arrayOfLines[5]))
         {
-        return true;
+            validEmp = true;
         }
         else{
-            try {
-                throw new Exception("Could not process employee");
-            } catch (Exception e) {
-                logger.warn("Could not process employee");
-                logger.catching(e);
-                throw new RuntimeException(e);
-            }
+            logger.warn("This employee is not valid "+arrayOfLines);
         }
-            }
+        return validEmp;
+    }
 
     public ArrayList<Employee> readEmployee(String filename) throws FileNotFoundException {
         ArrayList<Employee> listOfEmployees = new ArrayList<>();
